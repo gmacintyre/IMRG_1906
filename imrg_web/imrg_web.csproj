@@ -243,6 +243,8 @@
     <Content Include="Models\imrgdb.edmx.diagram">
       <DependentUpon>imrgdb.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\imrg1906 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\imrg1906 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
