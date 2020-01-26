@@ -18,5 +18,9 @@ namespace imrg_web.Models
         public string EventName { get; set; }
         public System.Guid Inserted_By { get; set; }
         public System.DateTime Inserted_Date { get; set; }
+        public string Description { get; set; }
+        public string Location { get; set; }
+        public System.DateTime StartDateTime { get; set; }
+        public System.DateTime EndDateTime { get; set; }
     }
 }
