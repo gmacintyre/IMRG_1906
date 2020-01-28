@@ -1,9 +1,5 @@
 C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\bin\Debug\imrg_db.dacpac
 C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\bin\Debug\imrg_db.dll
 C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\bin\Debug\imrg_db.pdb
-C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\Model.xml
-C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\refactor.xml
-C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\postdeploy.sql
-C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\predeploy.sql
 C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\imrg_db.dll
 C:\Users\Gina\Source\Repos\IMRG_1906\imrg_db\obj\Debug\imrg_db.pdb

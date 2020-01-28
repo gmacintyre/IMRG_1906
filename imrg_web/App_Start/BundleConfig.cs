@@ -20,10 +20,13 @@ namespace imrg_web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/fullcalendar/core/main.js",
+                      "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
+                "~/Scripts/fullcalendar/core/main.js",
                       "~/Scripts/fullcalendar/interactins/main.js",
-                      "~/Scripts/fullcalendar/daygrid/main.js"));
+                      "~/Scripts/fullcalendar/daygrid/main.js",
+                      "~/Scripts/calendar-view.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

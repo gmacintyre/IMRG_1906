@@ -248,6 +248,7 @@
     </Content>
     <None Include="Properties\PublishProfiles\imrg1906 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\imrg1906 - Web Deploy.pubxml" />
+    <Content Include="Scripts\calendar-view.js" />
     <Content Include="Scripts\fullcalendar\bootstrap\package.json" />
     <Content Include="Scripts\fullcalendar\bootstrap\README.md" />
     <Content Include="Scripts\fullcalendar\core\package.json" />

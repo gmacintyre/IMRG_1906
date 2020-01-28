@@ -6,19 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'dayGrid' ]
-        });
-
-        calendar.render();
-      });
-
-    </script>
+    @Scripts.Render("~/bundles/calendar")
+  
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
