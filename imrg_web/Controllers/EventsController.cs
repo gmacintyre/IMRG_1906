@@ -12,17 +12,20 @@ using Microsoft.AspNet.Identity;
 
 namespace imrg_web.Controllers
 {
+    [Authorize(Roles="Admin,Marketer")]
     public class EventsController : Controller
     {
         private imrgEntities db = new imrgEntities();
 
         // GET: Events
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var @evenets = db.Events.ToList();
             return View(@evenets);
         }
-
+        
+        [AllowAnonymous]
         public JsonResult Calendar(string start, string end)
         {
             var @events = new List<Event>();

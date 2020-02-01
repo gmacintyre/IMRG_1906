@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace imrg_web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserRolesController : Controller
     {
 
