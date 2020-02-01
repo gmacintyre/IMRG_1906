@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using imrg_web.BLL.Calendar;
 using imrg_web.Models;
 using Microsoft.AspNet.Identity;
 
@@ -24,6 +25,23 @@ namespace imrg_web.Controllers
 
 
             return View(@evenets);
+        }
+
+        public JsonResult Calendar(string start, string end)
+        {
+            var @events = new List<Event>();
+            if (DateTime.TryParse(start, out DateTime startDate) && DateTime.TryParse(end, out DateTime endDate))
+            {
+                
+                @events = db.Events.Where(x => x.StartDateTime >= startDate && x.EndDateTime <= endDate).ToList();
+            }
+            else
+            {
+                @events = db.Events.ToList();
+            }
+
+            var jsonModel = JsonEventModel.CreateList(@events);
+            return Json(jsonModel, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Events/Details/5

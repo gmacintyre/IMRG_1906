@@ -24,9 +24,8 @@ namespace imrg_web
 
             bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
                 "~/Scripts/fullcalendar/core/main.js",
-                      "~/Scripts/fullcalendar/interactins/main.js",
-                      "~/Scripts/fullcalendar/daygrid/main.js",
-                      "~/Scripts/calendar-view.js"));
+                      "~/Scripts/fullcalendar/interaction/main.js",
+                      "~/Scripts/fullcalendar/daygrid/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
