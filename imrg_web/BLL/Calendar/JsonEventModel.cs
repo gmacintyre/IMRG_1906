@@ -13,6 +13,8 @@ namespace imrg_web.BLL.Calendar
         public string end { get; set; }
         public string title { get; set; }
 
+        public string url { get; set; }
+
         public static JsonEventModel Create(Event @event)
         {
             var model = new JsonEventModel();
@@ -20,6 +22,7 @@ namespace imrg_web.BLL.Calendar
             model.start = @event.StartDateTime.ToString("o");
             model.end = @event.EndDateTime.ToString("o");
             model.title = @event.EventName;
+            model.url = $"/events/details?id={model.id}";
 
             return model;
         }

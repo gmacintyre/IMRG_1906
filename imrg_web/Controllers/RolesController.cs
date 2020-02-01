@@ -1,61 +1,39 @@
-﻿using System;
+﻿using imrg_web.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using imrg_web.BLL.Calendar;
-using imrg_web.Models;
-using Microsoft.AspNet.Identity;
 
 namespace imrg_web.Controllers
 {
-    [Authorize(Roles="Admin,Marketer")]
-    public class EventsController : Controller
+    [Authorize(Roles="Admin")]
+    public class RolesController : Controller
     {
-        private imrgEntities db = new imrgEntities();
 
-        // GET: Events
-        [AllowAnonymous]
+        private imrgEntities db = new imrgEntities();
+        // GET: Roles
         public ActionResult Index()
         {
-            var @evenets = db.Events.ToList();
-            return View(@evenets);
-        }
-        
-        [AllowAnonymous]
-        public JsonResult Calendar(string start, string end)
-        {
-            var @events = new List<Event>();
-            if (DateTime.TryParse(start, out DateTime startDate) && DateTime.TryParse(end, out DateTime endDate))
-            {
-                
-                @events = db.Events.Where(x => x.StartDateTime >= startDate && x.EndDateTime <= endDate).ToList();
-            }
-            else
-            {
-                @events = db.Events.ToList();
-            }
-
-            var jsonModel = JsonEventModel.CreateList(@events);
-            return Json(jsonModel, JsonRequestBehavior.AllowGet);
+            var roles = db.AspNetRoles.ToList();
+            return View(roles);
         }
 
         // GET: Events/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            var role = db.AspNetRoles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(role);
         }
 
 
@@ -70,37 +48,32 @@ namespace imrg_web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventName,StartDateTime,EndDateTime,Description,Location")] Event @event)
+        public ActionResult Create([Bind(Include = "Name")] AspNetRole role)
         {
-
-            if(Guid.TryParse(User.Identity.GetUserId(), out Guid userId))
-            {
-                @event.Inserted_By = userId;
-                @event.Inserted_Date = DateTime.Now;
-            }
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                role.Id = Guid.NewGuid().ToString();
+                db.AspNetRoles.Add(role);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(@event);
+            return View(role);
         }
 
         // GET: Events/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            AspNetRole role = db.AspNetRoles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(role);
         }
 
         // POST: Events/Edit/5
@@ -108,39 +81,39 @@ namespace imrg_web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventId,EventName,Inserted_By,Inserted_Date,StartDateTime,EndDateTime,Description,Location")] Event @event)
+        public ActionResult Edit([Bind(Include = "Id,Name")] AspNetRole role)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
+                db.Entry(role).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(@event);
+            return View(role);
         }
 
         // GET: Events/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            var role  = db.AspNetRoles.Find(id);
+            if (role == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(role);
         }
 
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
+            var role = db.AspNetRoles.Find(id);
+            db.AspNetRoles.Remove(role);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
