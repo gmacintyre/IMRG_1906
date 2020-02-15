@@ -24,7 +24,13 @@ namespace imrg_web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css, ",
+                      "~/Content/Custom/css/",
+                      "~/Content/Custom/font/",
+                      "~/Content/Custom/ico/",
+                      "~/Content/Custom/img/",
+                      "~/Content/Custom/js/",
+                      "~/Content/Custom/skins/red.css"));
         }
     }
 }
