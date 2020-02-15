@@ -5,3 +5,7 @@
 /.vs
 /imrg_web/obj
 /imrg_web/bin
+/imrg_db/obj/Debug
+/imrg_db/imrg_db.dbmdl
+*.jfm
+/node_modules

@@ -22,6 +22,11 @@ namespace imrg_web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
+                "~/Scripts/fullcalendar/core/main.js",
+                      "~/Scripts/fullcalendar/interaction/main.js",
+                      "~/Scripts/fullcalendar/daygrid/main.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css, ",
@@ -30,7 +35,10 @@ namespace imrg_web
                       "~/Content/Custom/ico/",
                       "~/Content/Custom/img/",
                       "~/Content/Custom/js/",
-                      "~/Content/Custom/skins/red.css"));
+                      "~/Content/Custom/skins/red.css",
+                      "~/Content/site.css",
+                      "~/Scripts/fullcalendar/core/main.css",
+                      "~/Scripts/fullcalendar/daygrid/main.css"));
         }
     }
 }

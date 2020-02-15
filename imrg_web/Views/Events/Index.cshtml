@@ -1,0 +1,26 @@
+﻿@model IEnumerable<imrg_web.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+
+@Scripts.Render("~/bundles/calendar")
+<script type="text/javascript" src="~/Scripts/calendar-view.js"></script>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<div id="calendar"></div>
+
+
+
+
